@@ -4,6 +4,28 @@ import passport from "passport";
 
 const router = express.Router();
 
+function getRedirectUrl(req) {
+  const isProd = process.env.NODE_ENV === "production";
+  if (isProd) return "/";
+  return process.env.CLIENT_URL || "http://localhost:5173";
+}
+
+function getCookieSameSite() {
+  const serverUrl =
+    process.env.SERVER_URL ||
+    process.env.RENDER_EXTERNAL_URL ||
+    `http://localhost:${process.env.PORT || 8000}`;
+  const clientUrl = process.env.CLIENT_URL || serverUrl;
+
+  if (process.env.NODE_ENV !== "production") return "lax";
+
+  try {
+    return new URL(clientUrl).origin !== new URL(serverUrl).origin ? "none" : "lax";
+  } catch {
+    return "lax";
+  }
+}
+
 // Google OAuth login request
 router.get(
   "/google",
@@ -19,7 +41,7 @@ router.get(
   }),
   (req, res) => {
     // Redirect to frontend after successful login
-    res.redirect(process.env.CLIENT_URL);
+    res.redirect(getRedirectUrl(req));
   }
 );
 
@@ -104,10 +126,10 @@ router.get("/logout", (req, res, next) => {
         path: "/",
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        sameSite: getCookieSameSite(),
       });
 
-      res.redirect(process.env.CLIENT_URL);
+      res.redirect(getRedirectUrl(req));
     });
   });
 });

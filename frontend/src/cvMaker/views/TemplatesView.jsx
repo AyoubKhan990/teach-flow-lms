@@ -5,7 +5,7 @@ import { CvTemplateCard } from "../components/CvTemplateCard";
 import { useAuth } from "../../hooks/useAuth";
 import { INITIAL_CV_DATA } from "../state/cvMakerState";
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL || "";
 
 export function TemplatesView() {
   const { state, dispatch } = useCvMaker();

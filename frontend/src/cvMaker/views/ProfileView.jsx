@@ -9,7 +9,7 @@ import { Button } from "../../components/ui/Button";
 import { Alert } from "../../components/ui/Alert";
 import { Switch } from "../../components/ui/Switch";
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL || "";
 
 function isValidHttpUrl(value) {
   if (!value) return true;

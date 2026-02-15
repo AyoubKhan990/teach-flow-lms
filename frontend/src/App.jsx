@@ -6,7 +6,7 @@ import CoreLayout from "./layouts/CoreLayout";
 import ToolLayout from "./layouts/ToolLayout";
 import { ToastProvider } from "./components/ui/Toast";
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL || "";
 
 const Home = React.lazy(() => import("./pages/Home/Home"));
 const Feed = React.lazy(() => import("./pages/Feed/Feed"));

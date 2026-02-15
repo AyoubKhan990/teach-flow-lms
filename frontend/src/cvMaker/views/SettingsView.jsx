@@ -10,7 +10,7 @@ import { Alert } from "../../components/ui/Alert";
 import { Dialog } from "../../components/ui/Dialog";
 import { Spinner } from "../../components/ui/Spinner";
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL || "";
 
 function downloadBlob(filename, blob) {
   const url = URL.createObjectURL(blob);

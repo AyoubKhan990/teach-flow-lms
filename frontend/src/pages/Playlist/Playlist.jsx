@@ -8,7 +8,7 @@ import { PageHeader } from "../../components/ui/PageHeader";
 import { Alert } from "../../components/ui/Alert";
 import { Spinner } from "../../components/ui/Spinner";
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL || "";
 
 export default function Playlist() {
   const [playlists, setPlaylists] = useState([]);

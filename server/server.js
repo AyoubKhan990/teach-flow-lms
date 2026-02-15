@@ -32,6 +32,21 @@ const isDev = process.env.NODE_ENV !== "production";
 const hasMongo = Boolean(process.env.MONGO_URI);
 const skipDb = process.env.SKIP_DB === "true";
 
+const serverUrl =
+  process.env.SERVER_URL ||
+  process.env.RENDER_EXTERNAL_URL ||
+  `http://localhost:${process.env.PORT || 8000}`;
+const clientUrl = process.env.CLIENT_URL || serverUrl;
+
+const isCrossSite = (() => {
+  if (isDev) return false;
+  try {
+    return new URL(clientUrl).origin !== new URL(serverUrl).origin;
+  } catch {
+    return false;
+  }
+})();
+
 // ✅ Connect to MongoDB (optional in dev or if skipped)
 if (hasMongo && !skipDb) {
   connectDB();
@@ -42,12 +57,24 @@ if (hasMongo && !skipDb) {
 }
 
 // Middleware
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL || true,
-    credentials: true,
-  })
-);
+if (isDev) {
+  const allowlist = new Set([
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    ...(process.env.CLIENT_URL ? [process.env.CLIENT_URL] : []),
+  ]);
+
+  app.use(
+    cors({
+      origin: (origin, cb) => {
+        if (!origin) return cb(null, true);
+        if (allowlist.has(origin)) return cb(null, true);
+        return cb(new Error("Not allowed by CORS"));
+      },
+      credentials: true,
+    })
+  );
+}
 
 app.use(express.json({ limit: "50mb" }));
 
@@ -74,7 +101,7 @@ app.use(
     cookie: {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production", // ⬅️ IMPORTANT: required for cross-site cookies
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      sameSite: isCrossSite ? "none" : "lax",
       maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
       domain: process.env.NODE_ENV === "production" ? undefined : undefined, // Let browser infer domain unless we have a custom domain
     },

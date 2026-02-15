@@ -8,7 +8,7 @@ import { renderCvHtml } from "../utils/renderCv";
 import { PageHeader } from "../../components/ui/PageHeader";
 import { useAuth } from "../../hooks/useAuth";
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL || "";
 
 const STEPS = ["personal", "summary", "experience", "education", "skills"];
 
