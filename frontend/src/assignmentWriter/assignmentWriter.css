@@ -1,0 +1,103 @@
+.assignment-writer {
+  --color-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f3f4f6;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-primary: #4f46e5;
+  --color-accent: #2563eb;
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+  --color-border: #e5e7eb;
+
+  --radius-control: 10px;
+  --radius-card: 16px;
+  --radius-hero: 24px;
+
+  --shadow-1: 0 1px 2px rgba(2, 6, 23, 0.06), 0 1px 1px rgba(2, 6, 23, 0.04);
+  --shadow-2: 0 10px 25px rgba(2, 6, 23, 0.08), 0 4px 8px rgba(2, 6, 23, 0.06);
+  --shadow-3: 0 20px 40px rgba(2, 6, 23, 0.12), 0 10px 16px rgba(2, 6, 23, 0.08);
+
+  --fs-0: 1rem;
+  --fs-1: 1.25rem;
+  --fs-2: 1.563rem;
+  --fs-3: 1.953rem;
+  --fs-4: 2.441rem;
+  --fs-5: 3.052rem;
+
+  background-color: var(--color-bg);
+  background-image: radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.08) 0px, transparent 55%),
+    radial-gradient(at 100% 0%, rgba(79, 70, 229, 0.06) 0px, transparent 55%),
+    radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.06) 0px, transparent 55%);
+  background-attachment: fixed;
+  color: var(--color-text);
+}
+
+.assignment-writer :focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.assignment-writer .surface {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-1);
+}
+
+.assignment-writer .glass-panel {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: var(--shadow-2);
+}
+
+.assignment-writer .text-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.assignment-writer .text-step-0 {
+  font-size: var(--fs-0);
+  line-height: 1.55;
+}
+
+.assignment-writer .text-step-1 {
+  font-size: var(--fs-1);
+  line-height: 1.35;
+}
+
+.assignment-writer .text-step-2 {
+  font-size: var(--fs-2);
+  line-height: 1.25;
+}
+
+.assignment-writer .text-step-3 {
+  font-size: var(--fs-3);
+  line-height: 1.15;
+}
+
+.assignment-writer .text-step-4 {
+  font-size: var(--fs-4);
+  line-height: 1.1;
+}
+
+.assignment-writer .text-step-5 {
+  font-size: var(--fs-5);
+  line-height: 1.05;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .assignment-writer *,
+  .assignment-writer *::before,
+  .assignment-writer *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

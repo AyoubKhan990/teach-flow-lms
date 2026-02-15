@@ -1,0 +1,451 @@
+{
+  "sessions": [
+    {
+      "_id": "QSK81-ya8rJiDrNBh1h2Mad-wEWg2J2q",
+      "expires": "2025-12-11T20:13:32.191Z",
+      "session": "{\"cookie\":{\"originalMaxAge\":604800000,\"expires\":\"2025-12-09T23:33:40.211Z\",\"secure\":false,\"httpOnly\":true,\"path\":\"/\",\"sameSite\":\"lax\"},\"passport\":{\"user\":\"692f64b2d115c5a22ff7764e\"}}"
+    },
+    {
+      "_id": "6bKCRkJYAspwWIxGX-cbY2Mh5sT2WR6l",
+      "expires": "2025-12-11T20:14:13.435Z",
+      "session": "{\"cookie\":{\"originalMaxAge\":604800000,\"expires\":\"2025-12-10T05:23:35.787Z\",\"secure\":false,\"httpOnly\":true,\"path\":\"/\",\"sameSite\":\"lax\"},\"passport\":{\"user\":\"692fc95768e097eeb1147c6f\"}}"
+    }
+  ],
+  "users": [
+    {
+      "_id": "692f64b2d115c5a22ff7764e",
+      "googleId": "100348691484956306588",
+      "name": "Ayoub Khan",
+      "email": "ayoubkhan427990@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocK5lW-GVa-t3Wo9dfU3EqssFCzR2TU0dRoc3E6xvSxGkX9whA=s96-c",
+      "accountType": "Learner",
+      "stats": {
+        "totalWatchTime": 1020,
+        "totalQuizzesSolved": 2,
+        "topicsCleared": [
+          "Python Crash Course #9 - Modules",
+          "n8n Crash Course - Automated AI Workflows"
+        ]
+      },
+      "lastLogin": "2025-12-02T23:33:40.089Z",
+      "dailyActivity": [
+        {
+          "date": "2025-12-02",
+          "watchTime": 600,
+          "appOpenTime": 4380,
+          "videosWatched": [
+            "8f5LUaUlb8g",
+            "RGKi6LSPDLU"
+          ],
+          "loginCount": 3,
+          "_id": "692f64efd115c5a22ff77661"
+        },
+        {
+          "date": "2025-12-03",
+          "watchTime": 420,
+          "appOpenTime": 1620,
+          "videosWatched": [
+            "1SnPKhCdlsU",
+            "H86z-3vp4I0"
+          ],
+          "loginCount": 1,
+          "_id": "692fc5f168e097eeb1147982"
+        },
+        {
+          "date": "2025-12-04",
+          "watchTime": 0,
+          "appOpenTime": 13740,
+          "videosWatched": [],
+          "loginCount": 1,
+          "_id": "6931767768e097eeb1147e57"
+        }
+      ],
+      "quizHistory": [
+        {
+          "date": "2025-12-02T22:39:53.653Z",
+          "videoId": "8f5LUaUlb8g",
+          "videoTitle": "Python Crash Course #9 - Modules",
+          "score": 0,
+          "totalQuestions": 5,
+          "difficulty": "medium",
+          "_id": "692f6ab9dee5e98c48876316"
+        },
+        {
+          "date": "2025-12-03T05:19:26.399Z",
+          "videoId": "H86z-3vp4I0",
+          "videoTitle": "n8n Crash Course - Automated AI Workflows",
+          "score": 1,
+          "totalQuestions": 5,
+          "difficulty": "medium",
+          "_id": "692fc85e68e097eeb1147b9d"
+        }
+      ],
+      "learningProgress": [
+        {
+          "videoId": "H86z-3vp4I0",
+          "title": "n8n Crash Course - Automated AI Workflows",
+          "lastWatched": "2025-12-03T05:16:01.658Z",
+          "playlistId": "692fc79168e097eeb1147ad0",
+          "_id": "692fc79168e097eeb1147aea"
+        },
+        {
+          "videoId": "1SnPKhCdlsU",
+          "title": "Php Tutorial for Beginners in Hindi with MySQL Project",
+          "lastWatched": "2025-12-03T05:13:29.067Z",
+          "playlistId": "692fc62a68e097eeb1147997",
+          "_id": "692fc6f968e097eeb1147a84"
+        },
+        {
+          "videoId": "RGKi6LSPDLU",
+          "title": "React Tutorial in Hindi 🔥🔥",
+          "lastWatched": "2025-12-02T23:22:43.226Z",
+          "playlistId": "692f74c277eda4adc69ead28",
+          "_id": "692f74c377eda4adc69ead39"
+        },
+        {
+          "videoId": "8f5LUaUlb8g",
+          "title": "Python Crash Course #9 - Modules",
+          "thumbnailUrl": "https://img.youtube.com/vi/8f5LUaUlb8g/hqdefault.jpg",
+          "lastWatched": "2025-12-02T22:38:29.029Z",
+          "_id": "692f6a65dee5e98c488762cc"
+        }
+      ],
+      "createdAt": "2025-12-02T22:14:10.436Z",
+      "updatedAt": "2025-12-04T20:13:32.073Z",
+      "__v": 12
+    },
+    {
+      "_id": "692fc95768e097eeb1147c6f",
+      "googleId": "108140404934606185220",
+      "name": "William",
+      "email": "ma27223895@gmail.com",
+      "picture": "https://lh3.googleusercontent.com/a/ACg8ocJqlfStgrMKBiXZkSbYrEASl1zBQDlYVNdZYGv0FawztevmD0Q=s96-c",
+      "accountType": "Learner",
+      "stats": {
+        "totalWatchTime": 0,
+        "totalQuizzesSolved": 0,
+        "topicsCleared": []
+      },
+      "lastLogin": "2025-12-03T05:23:35.746Z",
+      "dailyActivity": [
+        {
+          "date": "2025-12-03",
+          "watchTime": 0,
+          "appOpenTime": 600,
+          "videosWatched": [],
+          "loginCount": 1,
+          "_id": "692fc9b268e097eeb1147ca9"
+        },
+        {
+          "date": "2025-12-04",
+          "watchTime": 0,
+          "appOpenTime": 13800,
+          "videosWatched": [],
+          "loginCount": 1,
+          "_id": "6931764968e097eeb1147e3c"
+        }
+      ],
+      "quizHistory": [],
+      "learningProgress": [],
+      "createdAt": "2025-12-03T05:23:35.749Z",
+      "updatedAt": "2025-12-04T20:14:10.626Z",
+      "__v": 2
+    }
+  ],
+  "playlists": [
+    {
+      "_id": "692f68501f064824285e6f3e",
+      "user": "692f64b2d115c5a22ff7764e",
+      "playlistId": "PLGjplNEQ1it_oTvuLRNqXfz_v_0pq6unW",
+      "title": "JavaScript Full Course (2025-26) - Beginners to Pro",
+      "videos": [
+        {
+          "videoId": "ajdRvxDWH4w",
+          "title": "JavaScript Full Course ❤️ | Variables & Data Types | Lecture 1",
+          "duration": "1:21:11",
+          "_id": "692f68501f064824285e6f3f"
+        },
+        {
+          "videoId": "Zg4-uSjxosE",
+          "title": "Lecture 2 : Operators and Conditional Statements | JavaScript Full Course",
+          "duration": "1:16:47",
+          "_id": "692f68501f064824285e6f40"
+        },
+        {
+          "videoId": "UmRtFFSDSFo",
+          "title": "Lecture 3: Loops and Strings | JavaScript Full Course",
+          "duration": "1:21:09",
+          "_id": "692f68501f064824285e6f41"
+        },
+        {
+          "videoId": "gFWhbjzowrM",
+          "title": "Lecture 4: Arrays | JavaScript Full Course",
+          "duration": "1:00:26",
+          "_id": "692f68501f064824285e6f42"
+        },
+        {
+          "videoId": "P0XMXqDGttU",
+          "title": "Lecture 5: Functions & Methods | JavaScript Full Course",
+          "duration": "1:09:10",
+          "_id": "692f68501f064824285e6f43"
+        },
+        {
+          "videoId": "7zcXPCt8Ck0",
+          "title": "Lecture 6 : DOM - Document Object Model | JavaScript Full Course | Part 1",
+          "duration": "1:22:31",
+          "_id": "692f68501f064824285e6f44"
+        },
+        {
+          "videoId": "fXAGTOZ25H8",
+          "title": "Lecture 7 : DOM (Part 2) | Document Object Model | JavaScript Full Course",
+          "duration": "27:56",
+          "_id": "692f68501f064824285e6f45"
+        },
+        {
+          "videoId": "_i-uLJAh79U",
+          "title": "Lecture 8 : Events in JavaScript | JavaScript Full Course",
+          "duration": "33:12",
+          "_id": "692f68501f064824285e6f46"
+        },
+        {
+          "videoId": "3rlEe1sP6N4",
+          "title": "Imp Update : JavaScript YouTube Course | Shradha Ma'am",
+          "duration": "1:08",
+          "_id": "692f68501f064824285e6f47"
+        },
+        {
+          "videoId": "SqrppLEljkY",
+          "title": "Lecture 9 : Tic Tac Toe Game in JavaScript | JS Project | JavaScript Full Course",
+          "duration": "53:35",
+          "_id": "692f68501f064824285e6f48"
+        },
+        {
+          "videoId": "_V33HCZWLDQ",
+          "title": "Lecture 10 : MiniProject - Stone, Paper & Scissors Game | JavaScript Full Course",
+          "duration": "47:06",
+          "_id": "692f68501f064824285e6f49"
+        },
+        {
+          "videoId": "N-O4w6PynGY",
+          "title": "Lecture 11 : Classes & Objects | JavaScript Full Course",
+          "duration": "1:00:43",
+          "_id": "692f68501f064824285e6f4a"
+        },
+        {
+          "videoId": "d3jXofmQm44",
+          "title": "Lecture 12 : Callbacks, Promises & Async Await | JavaScript Full Course",
+          "duration": "1:23:55",
+          "_id": "692f68501f064824285e6f4b"
+        },
+        {
+          "videoId": "CyGodpqcid4",
+          "title": "Last Lecture : Fetch API with Project | JavaScript Full Course",
+          "duration": "1:17:15",
+          "_id": "692f68501f064824285e6f4c"
+        }
+      ],
+      "isSingleVideo": false,
+      "totalRuntime": "13h 56m",
+      "createdAt": "2025-12-02T22:29:36.858Z",
+      "updatedAt": "2025-12-02T22:29:36.858Z",
+      "__v": 0
+    },
+    {
+      "_id": "692f68a81f064824285e6f87",
+      "user": "692f64b2d115c5a22ff7764e",
+      "playlistId": "PL4cUxeGkcC9goeb7U1FXFdNszWetCmhfB",
+      "title": "Python Crash Course",
+      "videos": [
+        {
+          "videoId": "wdp7smAtqZI",
+          "title": "Python Crash Course #1 - Intro & Setup",
+          "duration": "14:14",
+          "_id": "692f68a81f064824285e6f88"
+        },
+        {
+          "videoId": "Ryg5EZi-rqE",
+          "title": "Python Crash Course #2 - Python Basics",
+          "duration": "20:14",
+          "_id": "692f68a81f064824285e6f89"
+        },
+        {
+          "videoId": "bsoR7xI5C9g",
+          "title": "Python Crash Course #3 - Methods & Functions",
+          "duration": "18:56",
+          "_id": "692f68a81f064824285e6f8a"
+        },
+        {
+          "videoId": "pJJ2uLB1_Zo",
+          "title": "Python Crash Course #4 - Containers",
+          "duration": "20:30",
+          "_id": "692f68a81f064824285e6f8b"
+        },
+        {
+          "videoId": "Mg6B3RsMd54",
+          "title": "Python Crash Course #5 - Control Flow",
+          "duration": "22:42",
+          "_id": "692f68a81f064824285e6f8c"
+        },
+        {
+          "videoId": "_6YVDU0ny58",
+          "title": "Python Crash Course #6 - More on Functions",
+          "duration": "23:41",
+          "_id": "692f68a81f064824285e6f8d"
+        },
+        {
+          "videoId": "xWIoTLWpDJ8",
+          "title": "Python Crash Course #7 - Tools",
+          "duration": "23:54",
+          "_id": "692f68a81f064824285e6f8e"
+        },
+        {
+          "videoId": "OHT0wGUz5GI",
+          "title": "Python Crash Course #8 - Classes",
+          "duration": "28:57",
+          "_id": "692f68a81f064824285e6f8f"
+        },
+        {
+          "videoId": "8f5LUaUlb8g",
+          "title": "Python Crash Course #9 - Modules",
+          "duration": "22:53",
+          "_id": "692f68a81f064824285e6f90"
+        }
+      ],
+      "isSingleVideo": false,
+      "totalRuntime": "3h 16m",
+      "createdAt": "2025-12-02T22:31:04.590Z",
+      "updatedAt": "2025-12-02T22:31:04.590Z",
+      "__v": 0
+    },
+    {
+      "_id": "692f74c277eda4adc69ead28",
+      "user": "692f64b2d115c5a22ff7764e",
+      "playlistId": "RGKi6LSPDLU",
+      "title": "React Tutorial in Hindi 🔥🔥",
+      "videos": [
+        {
+          "videoId": "RGKi6LSPDLU",
+          "title": "React Tutorial in Hindi 🔥🔥",
+          "duration": "2:12:57",
+          "_id": "692f74c277eda4adc69ead29"
+        }
+      ],
+      "isSingleVideo": true,
+      "totalRuntime": "2:12:57",
+      "createdAt": "2025-12-02T23:22:42.955Z",
+      "updatedAt": "2025-12-02T23:22:42.955Z",
+      "__v": 0
+    },
+    {
+      "_id": "692fc62a68e097eeb1147997",
+      "user": "692f64b2d115c5a22ff7764e",
+      "playlistId": "1SnPKhCdlsU",
+      "title": "Php Tutorial for Beginners in Hindi with MySQL Project",
+      "videos": [
+        {
+          "videoId": "1SnPKhCdlsU",
+          "title": "Php Tutorial for Beginners in Hindi with MySQL Project",
+          "duration": "2:33:45",
+          "_id": "692fc62a68e097eeb1147998"
+        }
+      ],
+      "isSingleVideo": true,
+      "totalRuntime": "2:33:45",
+      "createdAt": "2025-12-03T05:10:03.004Z",
+      "updatedAt": "2025-12-03T05:10:03.004Z",
+      "__v": 0
+    },
+    {
+      "_id": "692fc79168e097eeb1147ad0",
+      "user": "692f64b2d115c5a22ff7764e",
+      "playlistId": "H86z-3vp4I0",
+      "title": "n8n Crash Course - Automated AI Workflows",
+      "videos": [
+        {
+          "videoId": "H86z-3vp4I0",
+          "title": "n8n Crash Course - Automated AI Workflows",
+          "duration": "34:18",
+          "_id": "692fc79168e097eeb1147ad1"
+        }
+      ],
+      "isSingleVideo": true,
+      "totalRuntime": "34:18",
+      "createdAt": "2025-12-03T05:16:01.399Z",
+      "updatedAt": "2025-12-03T05:16:01.399Z",
+      "__v": 0
+    },
+    {
+      "_id": "692fca7268e097eeb1147cf6",
+      "user": "692fc95768e097eeb1147c6f",
+      "playlistId": "PLseEp7p6EwibcvBe7cOWqDmN99zA1YFL2",
+      "title": "N8N Crash Course",
+      "videos": [
+        {
+          "videoId": "BLG9kpUCnww",
+          "title": "A (free) practical guide to n8n - start here | COMPLETE n8n crash course [Part 1]",
+          "duration": "1:34",
+          "_id": "692fca7268e097eeb1147cf7"
+        },
+        {
+          "videoId": "OP5FJBF4p5c",
+          "title": "Automate your business with n8n - handling contact forms | COMPLETE n8n crash course [Part 2]",
+          "duration": "1:39",
+          "_id": "692fca7268e097eeb1147cf8"
+        },
+        {
+          "videoId": "QJ0MXbEOijY",
+          "title": "How to dynamically route requests in n8n with LLMs | COMPLETE n8n crash course [Part 3]",
+          "duration": "17:01",
+          "_id": "692fca7268e097eeb1147cf9"
+        },
+        {
+          "videoId": "BMAv6-YZfvE",
+          "title": "Build an AI sales assistant with n8n | COMPLETE n8n crash course [Part 4]",
+          "duration": "28:48",
+          "_id": "692fca7268e097eeb1147cfa"
+        },
+        {
+          "videoId": "-PrhgxaBZG0",
+          "title": "Build an Al RAG Agent in n8n (quickest way) | COMPLETE n8n crash course [Part 5]",
+          "duration": "12:32",
+          "_id": "692fca7268e097eeb1147cfb"
+        },
+        {
+          "videoId": "g2bhGPaDUw0",
+          "title": "Build an n8n RAG Agent from scratch | COMPLETE n8n crash course [Part 6]",
+          "duration": "7:36",
+          "_id": "692fca7268e097eeb1147cfc"
+        },
+        {
+          "videoId": "N0fFCq1i0mI",
+          "title": "Create n8n magic link tokens for authentication | COMPLETE n8n crash course [Part 7]",
+          "duration": "4:30",
+          "_id": "692fca7268e097eeb1147cfd"
+        },
+        {
+          "videoId": "qbmVWY7DcXQ",
+          "title": "How to Connect n8n to a Postgres Database (Complete Guide)",
+          "duration": "12:26",
+          "_id": "692fca7268e097eeb1147cfe"
+        },
+        {
+          "videoId": "mvnA-kwO-YA",
+          "title": "Build a secure n8n authentication workflow 🔒 | COMPLETE n8n crash course [Part 9]",
+          "duration": "9:08",
+          "_id": "692fca7268e097eeb1147cff"
+        },
+        {
+          "videoId": "bWPum_rgWMM",
+          "title": "Complete n8n course (in 2 minutes)",
+          "duration": "1:23",
+          "_id": "692fca7268e097eeb1147d00"
+        }
+      ],
+      "isSingleVideo": false,
+      "totalRuntime": "1h 36m",
+      "createdAt": "2025-12-03T05:28:18.806Z",
+      "updatedAt": "2025-12-03T05:28:18.806Z",
+      "__v": 0
+    }
+  ]
+}

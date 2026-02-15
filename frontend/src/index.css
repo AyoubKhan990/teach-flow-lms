@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+:root {
+  --tf-font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --tf-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  --tf-bg: #f7f8fb;
+  --tf-surface: #ffffff;
+  --tf-surface-muted: rgba(255, 255, 255, 0.78);
+  --tf-surface-elevated: rgba(255, 255, 255, 0.92);
+
+  --tf-text: #0b1220;
+  --tf-text-muted: #536074;
+  --tf-text-subtle: #7a8699;
+
+  --tf-border: rgba(11, 18, 32, 0.12);
+  --tf-border-strong: rgba(11, 18, 32, 0.18);
+
+  --tf-primary: #2563eb;
+  --tf-primary-600: #1d4ed8;
+  --tf-primary-contrast: #ffffff;
+  --tf-ring: rgba(37, 99, 235, 0.35);
+
+  --tf-success: #16a34a;
+  --tf-warning: #f59e0b;
+  --tf-danger: #ef4444;
+  --tf-info: #0ea5e9;
+
+  --tf-shadow-sm: 0 1px 2px rgba(11, 18, 32, 0.06);
+  --tf-shadow-md: 0 12px 34px rgba(2, 6, 23, 0.14);
+  --tf-shadow-lg: 0 26px 60px rgba(2, 6, 23, 0.18);
+
+  --tf-radius-sm: 12px;
+  --tf-radius-md: 16px;
+  --tf-radius-lg: 22px;
+
+  --tf-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --tf-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --tf-duration-fast: 150ms;
+  --tf-duration: 220ms;
+  --tf-duration-slow: 320ms;
+
+  --tf-text-xs: 0.75rem;
+  --tf-text-sm: 0.875rem;
+  --tf-text-md: 1rem;
+  --tf-text-lg: 1.125rem;
+  --tf-text-xl: 1.25rem;
+  --tf-text-2xl: 1.5rem;
+  --tf-text-3xl: 1.875rem;
+  --tf-text-4xl: 2.25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]),
+  html[data-theme="auto"] {
+    --tf-bg: #070b13;
+    --tf-surface: #0b1220;
+    --tf-surface-muted: rgba(15, 23, 42, 0.72);
+    --tf-surface-elevated: rgba(15, 23, 42, 0.86);
+
+    --tf-text: #e6edf7;
+    --tf-text-muted: #9fb0c6;
+    --tf-text-subtle: #7b8aa2;
+
+    --tf-border: rgba(226, 232, 240, 0.14);
+    --tf-border-strong: rgba(226, 232, 240, 0.2);
+
+    --tf-primary: #60a5fa;
+    --tf-primary-600: #3b82f6;
+    --tf-primary-contrast: #0b1220;
+    --tf-ring: rgba(96, 165, 250, 0.35);
+
+    --tf-success: #22c55e;
+    --tf-warning: #fbbf24;
+    --tf-danger: #fb7185;
+    --tf-info: #38bdf8;
+
+    --tf-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --tf-shadow-md: 0 22px 46px rgba(0, 0, 0, 0.5);
+    --tf-shadow-lg: 0 34px 74px rgba(0, 0, 0, 0.58);
+  }
+}
+
+html[data-theme="dark"] {
+  --tf-bg: #070b13;
+  --tf-surface: #0b1220;
+  --tf-surface-muted: rgba(15, 23, 42, 0.72);
+  --tf-surface-elevated: rgba(15, 23, 42, 0.86);
+
+  --tf-text: #e6edf7;
+  --tf-text-muted: #9fb0c6;
+  --tf-text-subtle: #7b8aa2;
+
+  --tf-border: rgba(226, 232, 240, 0.14);
+  --tf-border-strong: rgba(226, 232, 240, 0.2);
+
+  --tf-primary: #60a5fa;
+  --tf-primary-600: #3b82f6;
+  --tf-primary-contrast: #0b1220;
+  --tf-ring: rgba(96, 165, 250, 0.35);
+
+  --tf-success: #22c55e;
+  --tf-warning: #fbbf24;
+  --tf-danger: #fb7185;
+  --tf-info: #38bdf8;
+
+  --tf-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --tf-shadow-md: 0 22px 46px rgba(0, 0, 0, 0.5);
+  --tf-shadow-lg: 0 34px 74px rgba(0, 0, 0, 0.58);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--tf-bg);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--tf-bg);
+  color: var(--tf-text);
+  font-family: var(--tf-font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.22);
+}
+
+:focus-visible {
+  outline: 2px solid var(--tf-ring);
+  outline-offset: 2px;
+}
+
+.tf-page {
+  width: 100%;
+  min-height: calc(100vh - 1px);
+}
+
+.tf-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+  max-width: 1440px;
+}
+
+.tf-surface {
+  background: var(--tf-surface);
+  border: 1px solid var(--tf-border);
+  border-radius: var(--tf-radius-md);
+  box-shadow: var(--tf-shadow-sm);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

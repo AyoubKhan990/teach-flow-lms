@@ -1,0 +1,41 @@
+services:
+  # --------------------------------------------------------------------------------
+  # TeachFlow Full-Stack (Monolith)
+  # --------------------------------------------------------------------------------
+  - type: web
+    name: teachflow-app
+    env: docker
+    dockerContext: .
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: oregon
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      # API Keys (User must provide these)
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: YOUTUBE_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY_SUMMARY
+        sync: false
+      - key: GEMINI_API_KEY_QUIZ
+        sync: false
+      # In a monolith, Client and Server URL are usually the same (the app's domain)
+      # You can set these to your Render URL after creation (e.g. https://teachflow.onrender.com)
+      - key: SERVER_URL
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: PYTHON_BIN
+        value: python3
+      - key: TRANSCRIPT_LANGS
+        value: en,en-US,en-GB,en-IN,hi

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Maker App - Professional Resume Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/templates.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-file-signature"></i>
+                <span>CV Maker</span>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-page="dashboard">
+                    <i class="fas fa-home"></i> <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-page="templates">
+                    <i class="fas fa-layer-group"></i> <span>Templates</span>
+                </a>
+                <a href="#" class="nav-item" data-page="my-resumes">
+                    <i class="fas fa-file-alt"></i> <span>My Resumes</span>
+                </a>
+                <a href="#" class="nav-item" data-page="profile">
+                    <i class="fas fa-user"></i> <span>Profile</span>
+                </a>
+                <a href="#" class="nav-item" data-page="settings">
+                    <i class="fas fa-cog"></i> <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="user-profile-mini">
+                <div class="avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="info">
+                    <span class="name">User</span>
+                    <span class="role">Free Plan</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <div class="topbar-left">
+                    <a class="topbar-brand" href="/">TeachFlow</a>
+                    <span class="topbar-sep">/</span>
+                    <span class="topbar-title">CV Maker</span>
+                </div>
+                <nav class="topbar-nav" aria-label="TeachFlow navigation">
+                    <a class="topbar-link" href="/">Home</a>
+                    <a class="topbar-link" href="/assignment-writer">Assignment Writer</a>
+                </nav>
+            </header>
+
+            <header class="mobile-header">
+                <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+                <span class="mobile-logo">CV Maker</span>
+                <div class="mobile-actions">
+                    <button class="icon-btn"><i class="fas fa-user"></i></button>
+                </div>
+            </header>
+
+            <section id="dashboard" class="page-view active">
+                <header class="page-header">
+                    <div>
+                        <h1>Welcome back!</h1>
+                        <p class="subtitle">Ready to create your next professional resume?</p>
+                    </div>
+                    <button class="btn btn-primary" id="create-new-btn">
+                        <i class="fas fa-plus"></i> Create New CV
+                    </button>
+                </header>
+
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <div class="icon bg-blue"><i class="fas fa-file-lines"></i></div>
+                        <div class="details">
+                            <span class="value">0</span>
+                            <span class="label">Total Resumes</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon bg-green"><i class="fas fa-download"></i></div>
+                        <div class="details">
+                            <span class="value">0</span>
+                            <span class="label">Downloads</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h2>Featured Templates</h2>
+                    <a href="#" class="view-all" data-target="templates">View All</a>
+                </div>
+
+                <div class="template-grid-preview" id="featured-templates">
+                </div>
+
+                <div class="section-header">
+                    <h2>Recent Resumes</h2>
+                </div>
+
+                <div class="recent-resumes-list" id="recent-resumes">
+                    <div class="empty-state">
+                        <img src="assets/empty.svg" alt="No resumes" onerror="this.style.display='none'">
+                        <p>No resumes yet. Create your first one!</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="templates" class="page-view hidden">
+                <header class="page-header">
+                    <div>
+                        <h1>Templates</h1>
+                        <p class="subtitle">Choose from our collection of professional designs</p>
+                    </div>
+                </header>
+
+                <div class="template-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="modern">Modern</button>
+                    <button class="filter-btn" data-filter="professional">Professional</button>
+                    <button class="filter-btn" data-filter="creative">Creative</button>
+                    <button class="filter-btn" data-filter="simple">Simple</button>
+                </div>
+
+                <div class="template-grid full" id="all-templates">
+                </div>
+            </section>
+
+            <section id="editor" class="page-view hidden">
+                <header class="page-header">
+                    <div>
+                        <h1>CV Editor</h1>
+                        <p class="subtitle" id="selected-template-name">Editing Resume</p>
+                    </div>
+                    <div class="editor-actions">
+                        <button class="btn btn-secondary" id="back-to-dashboard">Cancel</button>
+                        <button class="btn btn-primary" id="download-pdf">
+                            <i class="fas fa-download"></i> Download PDF
+                        </button>
+                    </div>
+                </header>
+
+                <div class="editor-layout">
+                    <div class="editor-form-container">
+                        <div class="form-steps">
+                            <button class="step-btn active" data-step="personal">Personal</button>
+                            <button class="step-btn" data-step="summary">Summary</button>
+                            <button class="step-btn" data-step="experience">Experience</button>
+                            <button class="step-btn" data-step="education">Education</button>
+                            <button class="step-btn" data-step="skills">Skills</button>
+                        </div>
+
+                        <div id="form-alert" class="form-alert hidden" role="alert" aria-live="polite"></div>
+                        <div id="form-guidance" class="form-guidance" aria-live="polite"></div>
+
+                        <form id="cv-form">
+                            <div class="form-step active" id="step-personal">
+                                <h3>Personal Information</h3>
+
+                                <div class="photo-upload-section">
+                                    <div class="photo-preview" id="photo-preview">
+                                        <i class="fas fa-user"></i>
+                                        <span>Add Photo</span>
+                                    </div>
+                                    <div class="photo-controls">
+                                        <label class="btn-upload">
+                                            <i class="fas fa-camera"></i> Upload Photo
+                                            <input type="file" id="photo-input" accept="image/*" hidden>
+                                        </label>
+                                        <button type="button" class="btn-remove-photo hidden" id="remove-photo">
+                                            <i class="fas fa-trash"></i> Remove
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="form-group two-col">
+                                    <div class="field">
+                                        <label>Full Name</label>
+                                        <input type="text" name="fullName" placeholder="Richard Sanchez">
+                                    </div>
+                                    <div class="field">
+                                        <label>Job Title</label>
+                                        <input type="text" name="jobTitle" placeholder="Marketing Manager">
+                                    </div>
+                                </div>
+                                <div class="form-group two-col">
+                                    <div class="field">
+                                        <label>Email</label>
+                                        <input type="email" name="email" placeholder="hello@reallygreatsite.com">
+                                    </div>
+                                    <div class="field">
+                                        <label>Phone</label>
+                                        <input type="tel" name="phone" placeholder="+123-456-7890">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Address</label>
+                                    <input type="text" name="address" placeholder="123 Anywhere St., Any City">
+                                </div>
+                                <div class="form-group two-col">
+                                    <div class="field">
+                                        <label>LinkedIn</label>
+                                        <input type="url" name="linkedin" placeholder="linkedin.com/in/yourname">
+                                    </div>
+                                    <div class="field">
+                                        <label>Portfolio/Website</label>
+                                        <input type="url" name="website" placeholder="www.reallygreatsite.com">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-step hidden" id="step-summary">
+                                <div class="section-header-small">
+                                    <h3>Professional Summary</h3>
+                                    <button type="button" class="btn-ai" id="ai-generate-bio">
+                                        <i class="fas fa-wand-magic-sparkles"></i> AI Generate
+                                    </button>
+                                </div>
+                                <div class="field">
+                                    <label>Bio</label>
+                                    <textarea name="summary" rows="6" placeholder="Experienced professional with..."></textarea>
+                                </div>
+                                <div class="ai-controls" id="ai-summary-options">
+                                    <p><small>AI Assistant Settings</small></p>
+                                    <input type="password" id="gemini-api-key" placeholder="Enter Gemini API Key (Optional)">
+                                </div>
+                            </div>
+
+                            <div class="form-step hidden" id="step-experience">
+                                <h3>Work Experience</h3>
+                                <div id="experience-list">
+                                </div>
+                                <button type="button" class="btn-add" id="add-experience">+ Add Position</button>
+                            </div>
+
+                            <div class="form-step hidden" id="step-education">
+                                <h3>Education</h3>
+                                <div id="education-list">
+                                </div>
+                                <button type="button" class="btn-add" id="add-education">+ Add Education</button>
+                            </div>
+
+                            <div class="form-step hidden" id="step-skills">
+                                <h3>Skills</h3>
+                                <div class="field">
+                                    <label>Technical Skills (comma separated)</label>
+                                    <input type="text" name="skills" placeholder="JavaScript, Python, Project Management">
+                                </div>
+                                <div class="field">
+                                    <label>Soft Skills (comma separated)</label>
+                                    <input type="text" name="softSkills" placeholder="Leadership, Communication, Teamwork">
+                                </div>
+                                <div class="field">
+                                    <label>Languages</label>
+                                    <input type="text" name="languages" placeholder="English, Spanish">
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-secondary hidden" id="prev-step">Previous</button>
+                            <button type="button" class="btn btn-primary" id="next-step">Next</button>
+                        </div>
+                    </div>
+
+                    <div class="editor-preview-container">
+                        <div class="preview-toolbar">
+                            <span>Live Preview</span>
+                            <div class="zoom-controls">
+                                <button id="zoom-out">-</button>
+                                <span id="zoom-level">100%</span>
+                                <button id="zoom-in">+</button>
+                            </div>
+                        </div>
+                        <div class="preview-scroll-area">
+                            <div id="cv-preview" class="cv-preview-paper">
+                                <div class="placeholder-msg">Select a template to verify preview</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/pdf.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
+

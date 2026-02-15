@@ -1,0 +1,8 @@
+{
+    "topic": "Debug Assignment",
+    "subject": "Computer Science",
+    "level": "University",
+    "includeImages": true,
+    "imageCount": "3",
+    "content": "This is a test paragraph.\n\n### Heading Test\nThis is another paragraph to test image insertion.\n\n- Bullet 1\n- Bullet 2\n\nAnother paragraph.\n\nAnother paragraph."
+}
