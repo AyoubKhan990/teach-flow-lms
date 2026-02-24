@@ -9,6 +9,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import express from "express";
+import mongoose from "mongoose";
 import passport from "passport";
 import cors from "cors";
 import session from "express-session";
@@ -47,12 +48,22 @@ const isCrossSite = (() => {
   }
 })();
 
-// ✅ Connect to MongoDB (optional in dev or if skipped)
-if (hasMongo && !skipDb) {
-  connectDB();
-} else if (isDev || skipDb) {
-  console.warn("⚠️ MONGO_URI missing or SKIP_DB set: starting server without database");
-} else {
+let dbConnectedAt = null;
+
+async function initDatabase() {
+  if (hasMongo && !skipDb) {
+    await connectDB();
+    dbConnectedAt = new Date().toISOString();
+    return;
+  }
+
+  if (isDev || skipDb) {
+    console.warn(
+      "⚠️ MONGO_URI missing or SKIP_DB set: starting server without database"
+    );
+    return;
+  }
+
   throw new Error("MONGO_URI is required in production");
 }
 
@@ -83,6 +94,11 @@ app.set("trust proxy", 1);
 if (!process.env.SESSION_SECRET && !isDev) {
   throw new Error("SESSION_SECRET is required in production");
 }
+
+const mongoUrl = process.env.MONGO_URI;
+const forceIpv4 = process.env.MONGO_FORCE_IPV4 === "true";
+const isLocalMongo =
+  typeof mongoUrl === "string" && /mongodb:\/\/(localhost|127\.0\.0\.1)/i.test(mongoUrl);
 app.use(
   session({
     name: "connect.sid", // Explicitly set cookie name
@@ -93,7 +109,8 @@ app.use(
     ...(hasMongo
       ? {
           store: MongoStore.create({
-            mongoUrl: process.env.MONGO_URI,
+            mongoUrl,
+            mongoOptions: isLocalMongo || forceIpv4 ? { family: 4 } : undefined,
             collectionName: "sessions",
           }),
         }
@@ -113,6 +130,20 @@ app.use(passport.session());
 
 // Routes
 app.use("/auth", authRoutes);
+
+app.get("/api/health", (req, res) => {
+  res.json({
+    ok: true,
+    nodeEnv: process.env.NODE_ENV,
+    uptimeSec: Math.round(process.uptime()),
+    db: {
+      hasMongo: Boolean(process.env.MONGO_URI),
+      skipDb: process.env.SKIP_DB === "true",
+      readyState: mongoose.connection.readyState,
+      connectedAt: dbConnectedAt,
+    },
+  });
+});
 
 // Root route handled below in production
 
@@ -157,4 +188,22 @@ if (process.env.NODE_ENV === "production") {
 
 // Start server
 const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
+async function start() {
+  await initDatabase();
+  app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+}
+
+start().catch((err) => {
+  console.error("❌ Server failed to start", err?.message || err);
+  process.exit(1);
+});
+
+process.on("unhandledRejection", (reason) => {
+  console.error("❌ Unhandled promise rejection", reason);
+});
+
+process.on("uncaughtException", (err) => {
+  console.error("❌ Uncaught exception", err);
+  process.exit(1);
+});

@@ -16,7 +16,10 @@ const cleanTranscript = (transcript) => {
 // --- SUMMARIZE ENDPOINT ---
 router.post("/summarize", async (req, res) => {
   try {
-    const apiKey = process.env.GEMINI_API_KEY_SUMMARY || process.env.SUMMARY_API_KEY;
+    const apiKey =
+      process.env.GEMINI_API_KEY_SUMMARY ||
+      process.env.SUMMARY_API_KEY ||
+      process.env.GOOGLE_API_KEY;
     if (!apiKey) {
       console.error("Missing summary API key (GEMINI_API_KEY_SUMMARY or SUMMARY_API_KEY)");
       return res
@@ -61,7 +64,20 @@ router.post("/summarize", async (req, res) => {
     res.json({ summary });
   } catch (error) {
     console.error("Gemini Summary Error:", error);
-    res
+
+    const isInvalidKey =
+      error?.status === 400 &&
+      Array.isArray(error?.errorDetails) &&
+      error.errorDetails.some((d) => d?.reason === "API_KEY_INVALID");
+    if (isInvalidKey) {
+      return res.status(500).json({
+        error: "Server configuration error: Invalid Gemini API key",
+        remediation:
+          "Set a valid Gemini key in GEMINI_API_KEY_SUMMARY / SUMMARY_API_KEY / GOOGLE_API_KEY",
+      });
+    }
+
+    return res
       .status(500)
       .json({ error: "Failed to generate summary. Please try again." });
   }
@@ -70,7 +86,10 @@ router.post("/summarize", async (req, res) => {
 // --- QUIZ ENDPOINT ---
 router.post("/quiz", async (req, res) => {
   try {
-    const apiKey = process.env.GEMINI_API_KEY_QUIZ || process.env.QUIZ_API_KEY;
+    const apiKey =
+      process.env.GEMINI_API_KEY_QUIZ ||
+      process.env.QUIZ_API_KEY ||
+      process.env.GOOGLE_API_KEY;
     if (!apiKey) {
       console.error("Missing quiz API key (GEMINI_API_KEY_QUIZ or QUIZ_API_KEY)");
       return res
@@ -136,7 +155,20 @@ router.post("/quiz", async (req, res) => {
     res.json({ quiz });
   } catch (error) {
     console.error("Gemini Quiz Error:", error);
-    res
+
+    const isInvalidKey =
+      error?.status === 400 &&
+      Array.isArray(error?.errorDetails) &&
+      error.errorDetails.some((d) => d?.reason === "API_KEY_INVALID");
+    if (isInvalidKey) {
+      return res.status(500).json({
+        error: "Server configuration error: Invalid Gemini API key",
+        remediation:
+          "Set a valid Gemini key in GEMINI_API_KEY_QUIZ / QUIZ_API_KEY / GOOGLE_API_KEY",
+      });
+    }
+
+    return res
       .status(500)
       .json({ error: "Failed to generate quiz. Please try again." });
   }
