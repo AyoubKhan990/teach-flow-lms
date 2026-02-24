@@ -26,9 +26,13 @@ async function connectWithRetry({ uri, attempts, delayMs }) {
       return conn;
     } catch (err) {
       lastError = err;
-      console.error(
-        `❌ MongoDB connection attempt ${i}/${attempts} failed: ${err?.message || err}`
-      );
+      const details = {
+        name: err?.name,
+        message: err?.message,
+        code: err?.code,
+        codeName: err?.codeName,
+      };
+      console.error(`❌ MongoDB connection attempt ${i}/${attempts} failed`, details);
       if (i < attempts) {
         await new Promise((r) => setTimeout(r, delayMs));
       }

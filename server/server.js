@@ -15,6 +15,7 @@ import cors from "cors";
 import session from "express-session";
 
 import connectDB from "./src/utils/connectDB.js";
+import { getOrCreateDevUser } from "./src/utils/devUser.js";
 import authRoutes from "./src/routes/auth.js";
 import "./src/config/passport.js"; // Passport config
 
@@ -127,6 +128,15 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+if (process.env.NODE_ENV !== "production" && process.env.DEV_AUTH_BYPASS === "true") {
+  app.use(async (req, res, next) => {
+    if (!req.user) {
+      req.user = await getOrCreateDevUser();
+    }
+    next();
+  });
+}
 
 // Routes
 app.use("/auth", authRoutes);

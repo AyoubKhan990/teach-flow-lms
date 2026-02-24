@@ -83,6 +83,12 @@ This report documents what was checked, what was changed, and how to verify stab
 
 ## Preventive Measures
 
+### “Unauthorized” vs Database Auth
+
+- `401 Unauthorized` responses from endpoints like `/api/playlists` are application-level authentication (session/login) failures, not MongoDB database authorization.
+- If Google OAuth is misconfigured (for example, `Error 401: invalid_client`), you cannot sign in, and all protected routes will return `401`.
+- For local development only, you can set `DEV_AUTH_BYPASS=true` to inject a dev user so protected routes work without Google.
+
 ### Secrets Safety
 
 - Do not commit `.env` files.
@@ -100,4 +106,3 @@ This report documents what was checked, what was changed, and how to verify stab
 
 - Log DB connected/disconnected events.
 - Fail fast in production if `MONGO_URI` is missing.
-
